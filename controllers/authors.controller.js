@@ -1,4 +1,4 @@
-const author = require('../models/authors.model'); // Importar el modelo de la BBDD
+const author = require('../models/authors.model.js'); // Importar el modelo de la BBDD
 
 // GET http://localhost:3000/entries --> ALL
 // GET http://localhost:3000/entries?email=hola@gmail.com --> por email

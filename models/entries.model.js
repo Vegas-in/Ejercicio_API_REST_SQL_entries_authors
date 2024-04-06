@@ -123,7 +123,7 @@ const deleteEntry = async (title) => {
   let client, result;
   try {
     client = await pool.connect(); // Espera a abrir conexion
-    const data = await client.query(queries.deleteEntry, [title]);
+    const data = await client.query(queries.deleteEntryByTitle, [title]);
     result = data.rows;
   } catch (err) {
     console.log(err);
