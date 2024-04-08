@@ -58,11 +58,11 @@ const updateAuthor = async (req, res) => {
 
 const deleteAuthor = async (req, res) => {
     let authors;
-    if (req.query.title) {
-        authors = await author.getAuthorByEmail(req.query.email);
+    if (req.params.title) {
+        authors = await author.getAuthorByEmail(req.params.email);
         if (authors.length > 0) {
-            deleted = await author.deleteAuthor(req.query.email); 
-            res.status(200).json({message: `Se ha borrado ${req.query.email}`})
+            deleted = await author.deleteAuthor(req.params.email); 
+            res.status(200).json({message: `Se ha borrado ${req.params.email}`})
         }else{
             res.status(404).json("No se ha encontrado el autor")
         }

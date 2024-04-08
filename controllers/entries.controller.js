@@ -23,10 +23,11 @@ const getEntries = async (req, res) => {
 //createEntry
 // POST http://localhost:3000/api/entries
 // let newEntry = {
-//     title:"noticia desde Node",
-//     content:"va a triunfar esto2",
-//     email:"alejandru@thebridgeschool.es",
-//     category:"sucesos"}
+//"title":"noticia desde Node",
+//"content":"va a triunfar esto2",
+//"email":"alejandru@thebridgeschool.es",
+//"category":"sucesos"
+//}
 
 // Crear entry por email
 const createEntry = async (req, res) => {
@@ -60,11 +61,11 @@ const updateEntry = async (req, res) => {
 
 const deleteEntry = async (req, res) => {
     let entries;
-    if (req.query.title) {
-        entries = await entry.getEntriesByTitle(req.query.title);
+    if (req.params.title) {
+        entries = await entry.getEntriesByTitle(req.params.title);
         if (entries.length > 0) {
-            deleted = await entry.deleteEntry(req.query.title); 
-            res.status(200).json({message: `Se ha borrado la entry ${req.query.title}`})
+            await entry.deleteEntry(req.params.title); 
+            res.status(200).json({message: `Se ha borrado la entry ${req.params.email}`})
         }else{
             res.status(404).json("No se ha encontrado el titulo")
         }
